@@ -5,14 +5,27 @@
 </head>
 <body>
     <h1>Location</h1>
-    <button id = "locationButton1">location</button>
-    <div id = "location"></div>
+    <button id = "locationButton1">location</button><br>
+    <div id = "location1"></div><br>
+
+    <button id = "locationButton2">location2</button>
+    <div id = "location2"></div>
+
 </body>
 <script type="text/javascript">
 var buttonFirstLocation = document.getElementById('locationButton1');
+var buttonSecondLocation = document.getElementById('locationButton2');
+
 buttonFirstLocation.addEventListener('click', function(){
     navigator.geolocation.getCurrentPosition(function(location){
-               var loc = document.getElementById("location");
+               var loc = document.getElementById("location1");
+               var location = loc.innerHTML = location.coords.latitude + "," + location.coords.longitude;
+           });
+});
+
+buttonSecondLocation.addEventListener('click', function(){
+    navigator.geolocation.getCurrentPosition(function(location){
+               var loc = document.getElementById("location2");
                var location = loc.innerHTML = location.coords.latitude + "," + location.coords.longitude;
            });
 });
