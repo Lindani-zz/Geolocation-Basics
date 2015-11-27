@@ -5,29 +5,58 @@
 </head>
 <body>
     <h1>Location</h1>
-    <button id = "locationButton1">location</button><br>
-    <div id = "location1"></div><br>
+    <button id = "locationButton1">location</button>
+    <input id = 'lat1'name = 'latitudeOne'> </input>
+    <input id = 'lang1'name = 'longitudeOne'> </input><br>
+
 
     <button id = "locationButton2">location2</button>
-    <div id = "location2"></div>
+    <input id = 'lat2'  name = 'latitudeTwo'> </input>
+    <input id = 'lang2' name = 'longitudeTwo'> </input><br>
+    <button id = 'distance'>Distance</button>
 
 </body>
 <script type="text/javascript">
 var buttonFirstLocation = document.getElementById('locationButton1');
 var buttonSecondLocation = document.getElementById('locationButton2');
+var distanceButton = document.getElementById('distance');
+
 
 buttonFirstLocation.addEventListener('click', function(){
     navigator.geolocation.getCurrentPosition(function(location){
-               var loc = document.getElementById("location1");
-               var location = loc.innerHTML = location.coords.latitude + "," + location.coords.longitude;
-           });
+              var lat1 = document.getElementById("lat1");
+              var lat1 = document.getElementById("lang1");
+
+              var latitude1 = lat1.value = location.coords.latitude;
+              var longitude1 = lang1.value = location.coords.longitude;
+
+  });
 });
 
 buttonSecondLocation.addEventListener('click', function(){
-    navigator.geolocation.getCurrentPosition(function(location){
-               var loc = document.getElementById("location2");
-               var location = loc.innerHTML = location.coords.latitude + "," + location.coords.longitude;
+    navigator.geolocation.getCurrentPosition(function(location2){
+              var lat2 = document.getElementById("lat2");
+              var lang2 = document.getElementById("lang2");
+
+              var latitude2 = lat2.value = location2.coords.latitude;
+              var longitude2 = lang2.value = location2.coords.longitude;
            });
 });
+
+
+distanceButton.addEventListener('click', function(){
+var lat1 = document.getElementById("lat1");
+var lang1 = document.getElementById("lang1");
+var lat2 = document.getElementById("lat2");
+var lang2 = document.getElementById("lang2");
+
+
+var locationOneMap = {latitude : lat1.value, longitude : lang1.value}
+
+var locationTwoMap = {latitude : lat2.value, longitude : lang2.value}
+  alert(geolib.getDistance(locationOneMap, locationTwoMap));
+
+})
 </script>
+ <script src="geolib.min.js" charset="utf-8"></script>
 </html>
