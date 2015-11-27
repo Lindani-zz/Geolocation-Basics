@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Current Location</title>
+</head>
+<body>
+    <h1>Location</h1>
+    <button id = "locationButton1">location</button>
+    <div id = "location"></div>
+</body>
+<script type="text/javascript">
+var buttonFirstLocation = document.getElementById('locationButton1');
+buttonFirstLocation.addEventListener('click', function(){
+    navigator.geolocation.getCurrentPosition(function(location){
+               var loc = document.getElementById("location");
+               var location = loc.innerHTML = location.coords.latitude + "," + location.coords.longitude;
+           });
+});
+</script>
+</html>
