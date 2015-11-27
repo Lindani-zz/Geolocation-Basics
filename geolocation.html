@@ -14,6 +14,8 @@
     <input id = 'lat2'  name = 'latitudeTwo'> </input>
     <input id = 'lang2' name = 'longitudeTwo'> </input><br>
     <button id = 'distance'>Distance</button>
+    <input id = 'firstDistance' name = 'DistanceOne'></input>
+
 
 </body>
 <script type="text/javascript">
@@ -45,6 +47,7 @@ buttonSecondLocation.addEventListener('click', function(){
 
 
 distanceButton.addEventListener('click', function(){
+var firstDistance = document.getElementById("firstDistance");
 var lat1 = document.getElementById("lat1");
 var lang1 = document.getElementById("lang1");
 var lat2 = document.getElementById("lat2");
@@ -54,7 +57,7 @@ var lang2 = document.getElementById("lang2");
 var locationOneMap = {latitude : lat1.value, longitude : lang1.value}
 
 var locationTwoMap = {latitude : lat2.value, longitude : lang2.value}
-  alert(geolib.getDistance(locationOneMap, locationTwoMap));
+var distance = firstDistance.value = geolib.getDistance(locationOneMap, locationTwoMap);
 
 })
 </script>
