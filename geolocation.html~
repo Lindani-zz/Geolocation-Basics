@@ -23,7 +23,7 @@
     <input id = 'lang2' name = 'longitudeTwo'> </input><br>
     <button id = 'distance'>Distance</button>
     <input id = 'firstDistance' name = 'DistanceOne'></input>
-
+<h1>GMaps.js &mdash; Basic</h1>
   <div class="row">
     <div class="span11">
       <div id="map"></div>
